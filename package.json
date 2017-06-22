@@ -1,14 +1,14 @@
 {
-  "name": "node-twitter",
+  "name": "node-sink-quickstart",
   "version": "1.0.0",
-  "description": "Twitter Redesign Project API",
+  "description": "Quickstart project with Node and SinkMVC framework using Hapi",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"    
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/raphaelmonte/node-twitter"
+    "url": "https://github.com/raphaelmonte/node-sink-quickstart"
   },
   "author": "Raphael Monte <raphaelmonte@midiaseducativas.com.br>",
   "license": "ISC",
