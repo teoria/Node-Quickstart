@@ -4,14 +4,14 @@ This repository contains a simple quickstart of how to program on a node with a 
 
 # This project was created using
 
-* [SinkMVC]
-* [Hapi]
-* [Joi]
-* [Boom]
-* [JWT]
-* [Gulp]
-* [Typescript]
-* [Docker]
+* SinkMVC
+* Hapi
+* Joi
+* Boom
+* JWT
+* Gulp
+* Typescript
+* Docker
 
 # Run
 
