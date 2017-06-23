@@ -1,0 +1,12 @@
+{
+    "globalDependencies": {
+        "bcrypt": "registry:dt/bcrypt#0.0.0+20160316155526",
+        "hapi": "registry:dt/hapi#13.0.0+20161019130714",
+        "joi": "registry:dt/joi#9.0.0+20161028155455",
+        "jsonwebtoken": "registry:dt/jsonwebtoken#0.0.0+20160316155526",
+        "node": "registry:dt/node#6.0.0+20161110151007"
+    },
+    "dependencies": {
+        "request": "registry:npm/request#2.69.0+20160428223725"
+    }
+}

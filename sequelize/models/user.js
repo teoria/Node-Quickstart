@@ -9,14 +9,14 @@ module.exports = function (sequelize, DataTypes) {
                 autoIncrement: true,
                 primaryKey: true,
                 unique: true,
-                type: Sequelize.INTEGER
+                type: DataTypes.INTEGER
             },
             name: {
-                type: Sequelize.STRING,
+                type: DataTypes.STRING,
                 allowNull: false
             },
             email: {
-                type: Sequelize.STRING,
+                type: DataTypes.STRING,
                 allowNull: true,
                 unique: true,
                 validate: {
@@ -24,11 +24,11 @@ module.exports = function (sequelize, DataTypes) {
                 }
             },
             password: {
-                type: Sequelize.STRING,
+                type: DataTypes.STRING,
                 allowNull: true
             },
             profile: {
-                type: Sequelize.ENUM,
+                type: DataTypes.ENUM,
                 values: ['user', 'admin'],
                 allowNull: false
             }

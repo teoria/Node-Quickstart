@@ -1,3 +1,5 @@
+/// <reference path="../typings/index.d.ts" />
+
 import { AppServer } from "./server";
 import { Configuration } from './shared/index';
 import { Autoload } from "./autoload";

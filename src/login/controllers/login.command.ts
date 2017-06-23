@@ -1,4 +1,3 @@
-import * as Boom from 'boom';
 import { Command, Facade, INotification } from 'sinkmvc';
 
 import { Security, IRouteParams } from "../../shared";

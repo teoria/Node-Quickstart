@@ -1,5 +1,5 @@
+import { IReply, Request } from 'hapi';
 import { Model } from 'sinkmvc';
-import { IReply, Request } from "hapi";
 
 import { IRouteParams } from "./route-params.interface";
 
