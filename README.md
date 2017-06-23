@@ -6,6 +6,8 @@ This repository contains a simple quickstart of how to program on a node with a 
 
 * SinkMVC
 * Hapi
+* Sequelize
+* MySQL
 * Joi
 * Boom
 * JWT
