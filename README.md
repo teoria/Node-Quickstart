@@ -23,5 +23,5 @@ npm start
 or
 
 ```
-docker-composer up
+docker-compose up
 ```
