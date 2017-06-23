@@ -6,7 +6,7 @@ export class Configuration {
 
     public static load(): void {
 
-        let config: Object = require('../config.json');
+        let config: Object = require('../../config.json');
         
         Configuration.server = config['server']; 
 
