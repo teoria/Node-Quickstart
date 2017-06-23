@@ -20,10 +20,12 @@ This repository contains a simple quickstart of how to program on a node with a 
 ```
 npm install
 npm start
+node_modules/sequelize-cli/bin/sequelize db:migrate
+node_modules/sequelize-cli/bin/sequelize db:seed:all
 ```
 
-or
+# or Use Docker
 
 ```
-docker-compose up
+docker-compose up -d
 ```
