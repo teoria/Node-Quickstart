@@ -1,8 +1,7 @@
-import { Server } from "hapi";
 import * as HapiAuthBearerSimple from 'hapi-auth-bearer-simple';
+import { Server } from "hapi";
 
-import { Security } from "./shared";
-import Configuration from "./configuration/configuration";
+import { Security, Configuration } from "./shared";
 
 export class AppServer {
 

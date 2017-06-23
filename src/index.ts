@@ -1,6 +1,6 @@
 import { AppServer } from "./server";
-import Autoload from "./autoload";
-import Configuration from './configuration/configuration';
+import { Configuration } from './shared/index';
+import { Autoload } from "./autoload";
 
 //Load configurations file
 Configuration.load();

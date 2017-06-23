@@ -2,7 +2,7 @@ import * as fs from "fs";
 import * as path from "path";
 import { Server } from "hapi";
 
-export default class Autoload {
+export class Autoload {
 
     constructor() { }
 

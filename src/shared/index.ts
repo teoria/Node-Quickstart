@@ -4,3 +4,4 @@ export * from './core/routes/route.interface';
 export * from './core/routes/router';
 
 export * from './utils/security.util';
+export * from './configuration/configuration';

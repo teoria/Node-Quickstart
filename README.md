@@ -1,11 +1,27 @@
 # Node SinkMVC QuickStart
 
-```
-npm install
-```
+This repository contains a simple quickstart of how to program on a node with a good architecture using SinkMVC and good practices.
+
+# This project was created using
+
+* [SinkMVC]
+* [Hapi]
+* [Joi]
+* [Boom]
+* [JWT]
+* [Gulp]
+* [Typescript]
+* [Docker]
 
 # Run
 
 ```
-gulp
+npm install
+npm start
+```
+
+or
+
+```
+docker-composer up
 ```

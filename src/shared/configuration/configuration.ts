@@ -1,4 +1,4 @@
-export default class Configuration {
+export class Configuration {
 
     public static server: {
         port: string
