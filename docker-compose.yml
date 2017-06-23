@@ -5,5 +5,5 @@ services:
     ports: 
       - "8000:8000"
     volumes:
-      - ./src:/usr/src/app/src      
-    command: gulp
+      - ./src:/usr/src/app/src
+    command: npm start

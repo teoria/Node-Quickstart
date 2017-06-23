@@ -4,9 +4,6 @@ FROM node:6.10.3
 ENV DIR /usr/src/app
 RUN mkdir -p $DIR
 
-# Install dependencies
-RUN npm i gulp -g --silent
-
 COPY . $DIR
 WORKDIR $DIR
 

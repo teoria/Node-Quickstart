@@ -4,7 +4,8 @@
   "description": "Quickstart project with Node and SinkMVC framework using Hapi",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node_modules/gulp/bin/gulp.js",
+    "test": "echo \"Error: no test specified\" && exit 1"    
   },
   "repository": {
     "type": "git",
