@@ -24,8 +24,9 @@ gulp.task('build', ['copy'], function() {
     console.log('Building the project ...');
 
     return gulp.src([SOURCE_FILES, TEST_FILES])
+               .pipe(gulp.dest(outDir))
                .pipe(tsProject()).js
-               .pipe(gulp.dest(outDir));
+               .pipe(gulp.dest('.'));
 
 });
 
