@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "start": "node_modules/gulp/bin/gulp.js",
-    "postinstall": "typings install",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
