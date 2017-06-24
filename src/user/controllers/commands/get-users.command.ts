@@ -6,7 +6,7 @@ import { IRouteParams, Security, SequelizeResponseFactory } from '../../../share
 import { ISequelizeResponse } from '../../../shared/core/sequelize-response/sequelize-response.interface';
 import { UserDAO } from '../../models/dao/user.dao';
 
-export class UserCommand extends Command {
+export class GetUsersCommand extends Command {
 
     constructor() {
         super();

@@ -2,7 +2,7 @@ import { Server } from "hapi";
 import { Facade } from "sinkmvc";
 
 import { Router } from '../../shared';
-import { UserCommand } from '../controllers/commands/user.command';
+import { GetUsersCommand } from "../controllers/commands/get-users.command";
 import { UserNotifications } from '../notifications/user.notifications';
 import { UserValidator } from '../validators/user.validator';
 
@@ -33,7 +33,7 @@ export class UserRouter extends Router {
     /** @override */
     protected registerCommands(): void {
 
-        Facade.registerCommand(UserNotifications.GET_USERS, UserCommand);
+        Facade.registerCommand(UserNotifications.GET_USERS, GetUsersCommand);
 
     }
 
