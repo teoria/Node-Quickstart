@@ -24,7 +24,7 @@ node_modules/sequelize-cli/bin/sequelize db:migrate
 node_modules/sequelize-cli/bin/sequelize db:seed:all
 ```
 
-# or Use Docker
+# or use Docker
 
 ```
 docker-compose up -d
