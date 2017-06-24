@@ -10,7 +10,6 @@ services:
     volumes:
       - ./src:/usr/src/app/src
     container_name: node_sinkmvc
-    command: sequelize db:migrate && sequelize db:seed:all
     command: npm start
     
   db:
@@ -24,5 +23,3 @@ services:
       MYSQL_ROOT_PASSWORD: null
       MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
     container_name: mysql
-
-  

@@ -9,5 +9,7 @@ WORKDIR $DIR
 EXPOSE 8000
 
 RUN npm i -g sequelize-cli --silent
-RUN npm i -g typings --silent
 RUN npm i --silent
+
+# RUN sequelize db:migrate
+# RUN sequelize db:seed:all

@@ -28,4 +28,7 @@ node_modules/sequelize-cli/bin/sequelize db:seed:all
 
 ```
 docker-compose up -d
+docker exec -it CONTAINER_ID bash
+sequelize db:migrate
+sequelize db:seed:all
 ```
