@@ -2,8 +2,9 @@ import { Server, IReply, Request } from "hapi";
 import { Facade } from "sinkmvc";
 
 import { Router } from '../../shared';
-import { GetUsersCommand } from "../controllers/commands/get-users.command";
+import { UsersGetCommand } from "../controllers/commands/users-get.command";
 import { UserValidator } from '../validators/user.validator';
+import { UserController } from "../controllers/user.controller";
 
 export class UserRouter extends Router {
 
@@ -14,25 +15,19 @@ export class UserRouter extends Router {
     /** @override */
     protected registerRoutes(): void {
 
-        let validator: UserValidator = new UserValidator();
+        let userValidator: UserValidator = new UserValidator();
+        let userController: UserController = new UserController();
 
         this.server.route({
             method: Router.GET,
             path: '/users',
-            handler: this.getUsers,
+            handler: userController.getUsers,
             config: {
                 validate: {
-                    query: validator.GET_USERS
+                    query: userValidator.GET_USERS
                 }
             }
         });
-
-    }
-
-    private getUsers(request: Request, reply: IReply): void {
-
-        let command: GetUsersCommand = new GetUsersCommand(request, reply);
-        command.execute();
 
     }
 

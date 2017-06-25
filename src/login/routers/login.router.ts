@@ -2,7 +2,7 @@ import { Server, IReply, Request } from "hapi";
 import { Facade } from "sinkmvc";
 
 import { Router } from '../../shared';
-import { LoginCommand } from '../controllers/commands/login.command';
+import { LoginController } from '../controllers/login.controller';
 import { LoginValidator } from '../validators/login.validator';
 
 export class LoginRouter extends Router {
@@ -14,25 +14,19 @@ export class LoginRouter extends Router {
     /** @override */
     protected registerRoutes(): void {
 
-        let validator: LoginValidator = new LoginValidator();
+        let loginValidator: LoginValidator = new LoginValidator();
+        let loginController: LoginController = new LoginController();
 
         this.server.route({
             method: Router.GET,
             path: '/login',
-            handler: this.login,
+            handler: loginController.login,
             config: {
                 validate: {
-                    query: validator.LOGIN
+                    query: loginValidator.LOGIN
                 }
             }
         });
-
-    }
-
-    private login(request: Request, reply: IReply): void {
-
-        let loginCommand: LoginCommand = new LoginCommand(request, reply);
-        loginCommand.execute();
 
     }
 
