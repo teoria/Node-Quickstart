@@ -1,45 +1,49 @@
 import * as Boom from 'boom';
-import { Command, Facade, INotification } from 'sinkmvc';
+import { IReply, Request } from "hapi";
 import { Error } from 'sequelize';
 
-import { IRouteParams, Security, SequelizeResponseFactory } from '../../../shared';
-import { ISequelizeResponse } from '../../../shared/core/sequelize-response/sequelize-response.interface';
+import { Security, SequelizeResponseFactory, ISequelizeResponse } from '../../../shared';
 import { UserDAO } from '../../models/dao/user.dao';
 
-export class GetUsersCommand extends Command {
+export class GetUsersCommand {
 
-    constructor() {
-        super();
+    private request: Request; 
+    private reply: IReply;
+
+    constructor(request: Request, reply: IReply) {
+        
+        this.request = request;
+        this.reply = reply;
+
     }
 
-    public execute(notification: INotification): void {
+    public execute(): void {
 
-        let routeParams: IRouteParams = notification.getBody();
         let userDAO: UserDAO = new UserDAO();
         let promise: Promise<ISequelizeResponse[]> = userDAO.getUsers();
 
         promise
-            .then((sequelizeResponse: ISequelizeResponse[]) => this.onSuccessGetUsers(sequelizeResponse, routeParams))
-            .catch((err: Error) => this.onFailureGetUsers(err, routeParams));
+            .then((sequelizeResponse: ISequelizeResponse[]) => this.onSuccessGetUsers(sequelizeResponse))
+            .catch((err: Error) => this.onFailureGetUsers(err));
 
     }
 
-    private onSuccessGetUsers(sequelizeResponse: ISequelizeResponse[], routeParams: IRouteParams): void {
+    private onSuccessGetUsers(sequelizeResponse: ISequelizeResponse[]): void {
 
         let factory: SequelizeResponseFactory = new SequelizeResponseFactory();
         let data: Object[] = factory.create(sequelizeResponse);
 
-        routeParams.reply({
+        this.reply({
             users: data
         });
 
     }
 
-    private onFailureGetUsers(err: Error, routeParams: IRouteParams): void {
+    private onFailureGetUsers(err: Error): void {
 
         console.error(err);
 
-        routeParams.reply(Boom.conflict("Unexpected error", { errors: err.errors }));
+        this.reply(Boom.conflict("Unexpected error", { errors: err.errors }));
 
     }
 

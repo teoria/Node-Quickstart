@@ -1,10 +1,9 @@
-import { Server } from "hapi";
+import { Server, IReply, Request } from "hapi";
 import { Facade } from "sinkmvc";
 
 import { Router } from '../../shared';
-import { LoginNotifications } from '../notifications/login.notification';
+import { LoginCommand } from '../controllers/commands/login.command';
 import { LoginValidator } from '../validators/login.validator';
-import { LoginCommand } from "../controllers/login.command";
 
 export class LoginRouter extends Router {
 
@@ -17,10 +16,10 @@ export class LoginRouter extends Router {
 
         let validator: LoginValidator = new LoginValidator();
 
-        this.addRoute({
+        this.server.server({
             method: Router.GET,
             path: '/login',
-            notification: LoginNotifications.LOGIN,
+            handler: this.login,
             config: {
                 validate: {
                     query: validator.LOGIN
@@ -30,10 +29,10 @@ export class LoginRouter extends Router {
 
     }
 
-    /** @override */
-    protected registerCommands(): void {
+    private login(request: Request, reply: IReply): void {
 
-        Facade.registerCommand(LoginNotifications.LOGIN, LoginCommand);
+        let loginCommand: LoginCommand = new LoginCommand(request, reply);
+        loginCommand.execute();
 
     }
 
