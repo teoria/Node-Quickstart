@@ -16,7 +16,7 @@ export class LoginRouter extends Router {
 
         let validator: LoginValidator = new LoginValidator();
 
-        this.server.server({
+        this.server.route({
             method: Router.GET,
             path: '/login',
             handler: this.login,

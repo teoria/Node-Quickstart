@@ -16,7 +16,7 @@ export class UserRouter extends Router {
 
         let validator: UserValidator = new UserValidator();
 
-        this.server.server({
+        this.server.route({
             method: Router.GET,
             path: '/users',
             handler: this.getUsers,
