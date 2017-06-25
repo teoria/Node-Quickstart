@@ -1,5 +1,7 @@
-import { Security, SequelizeResponseFactory, ISequelizeResponse } from '../../../shared';
+import { ISequelizeResponse, Security, SequelizeResponseFactory } from '../../../shared';
 import { UserDAO } from '../../models/dao/user.dao';
+import { UserFactory } from '../../models/factory/user.factory';
+import { User } from '../../models/vo/user.vo';
 
 export class UsersGetCommand {
 
@@ -10,7 +12,7 @@ export class UsersGetCommand {
             let userDAO: UserDAO = new UserDAO();
             let promise: Promise<ISequelizeResponse[]> = userDAO.getUsers();
             let factory: SequelizeResponseFactory = new SequelizeResponseFactory();
-
+            
             promise
                 .then(sequelizeResponse => resolve(factory.create(sequelizeResponse)))
                 .catch(err => reject(err));
@@ -19,9 +21,11 @@ export class UsersGetCommand {
 
     }
 
+    //or 
+    
     // public execute(): Promise<Object[]> {
 
-    //     return new Promise(this.getUsers);
+    //     return new Promise((resolve, reject) => this.getUsers(resolve, reject));
 
     // }
 
@@ -29,7 +33,7 @@ export class UsersGetCommand {
 
     //     let userDAO: UserDAO = new UserDAO();
     //     let promise: Promise<ISequelizeResponse[]> = userDAO.getUsers();
-
+        
     //     promise
     //         .then((sequelizeResponse: ISequelizeResponse[]) => this.onSuccessGetUsers(sequelizeResponse, resolve))
     //         .catch(err => reject(err));
@@ -38,9 +42,9 @@ export class UsersGetCommand {
 
     // private onSuccessGetUsers(sequelizeResponse: ISequelizeResponse[], resolve): void {
 
-    //     let factory: SequelizeResponseFactory = new SequelizeResponseFactory();
-    //     let data: Object[] = factory.create(sequelizeResponse);
-
+    //     let sequelizeResponseFactory: SequelizeResponseFactory = new SequelizeResponseFactory();
+    //     let data: Object[] = sequelizeResponseFactory.create(sequelizeResponse);
+        
     //     resolve(data);
 
     // }
