@@ -1,10 +1,9 @@
-# Node SinkMVC QuickStart
+# Node QuickStart
 
-This repository contains a simple quickstart of how to program on a node with a good architecture using SinkMVC and good practices.
+This repository contains a simple quickstart of how to program on a node with a good architecture and good practices.
 
 # This project was created using
 
-* SinkMVC
 * Hapi
 * Sequelize
 * MySQL
@@ -28,7 +27,7 @@ node_modules/sequelize-cli/bin/sequelize db:seed:all
 
 ```
 docker-compose up -d
-docker exec -it node_sinkmvc bash
+docker exec -it node_quickstart bash
 sequelize db:migrate
 sequelize db:seed:all
 ```

@@ -9,7 +9,7 @@ services:
       - db
     volumes:
       - ./src:/usr/src/app/src
-    container_name: node_sinkmvc
+    container_name: node_quickstart
     command: npm start
     
   db:
