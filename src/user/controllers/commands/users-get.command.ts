@@ -34,7 +34,7 @@ export class UsersGetCommand {
 
     //or 
 
-    // public execute2(): Promise<Object[]> {
+    // public execute(): Promise<Object[]> {
 
     //     return new Promise((resolve, reject) => {
 
