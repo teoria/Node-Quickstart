@@ -1,4 +1,4 @@
-import { User } from '../vo/user.vo';
+import { User } from './user.model';
 
 export class UserFactory {
 

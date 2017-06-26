@@ -1,4 +1,4 @@
-import { DAO, ISequelizeResponse } from '../../../shared';
+import { SequelizeResponse, DAO } from "../../shared";
 
 export class UserDAO extends DAO {
     
@@ -6,7 +6,7 @@ export class UserDAO extends DAO {
         super();
     }
 
-    public getUsers(): Promise<ISequelizeResponse[]> {
+    public getUsers(): Promise<SequelizeResponse[]> {
 
         return this.db.user.findAll({
             attributes: ['id', 'name', 'profile']

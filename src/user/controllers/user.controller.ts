@@ -2,7 +2,7 @@ import * as Boom from 'boom';
 import { IReply, Request } from 'hapi';
 import { Error } from 'sequelize';
 
-import { User } from '../models/vo/user.vo';
+import { User } from '../models/user.model';
 import { UsersGetCommand } from './commands/users-get.command';
 
 export class UserController {

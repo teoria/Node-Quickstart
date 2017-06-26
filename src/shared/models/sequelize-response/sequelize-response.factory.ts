@@ -1,8 +1,8 @@
-import { ISequelizeResponse } from "./sequelize-response.interface";
+import { SequelizeResponse } from './sequelize-response.model';
 
 export class SequelizeResponseFactory {
 
-    public create(sequelizeResponse: ISequelizeResponse[]): Object[] {
+    public create(sequelizeResponse: SequelizeResponse[]): Object[] {
 
         let data: Object[] = [];
 
