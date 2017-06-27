@@ -1,5 +1,4 @@
 import { Server, IReply, Request } from "hapi";
-import { Facade } from "sinkmvc";
 
 import { Router } from '../../shared';
 import { LoginController } from '../controllers/login.controller';
