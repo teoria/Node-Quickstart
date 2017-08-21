@@ -1,4 +1,3 @@
-import * as Boom from 'boom';
 import { IReply, Request } from 'hapi';
 import { Error } from 'sequelize';
 

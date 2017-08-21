@@ -6,7 +6,7 @@ import { LoginValidator } from '../validators/login.validator';
 
 export class LoginRouter extends Router {
 
-    constructor(server: Server) {        
+    constructor(server: Server) {
         super(server);
     }
 

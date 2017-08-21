@@ -5,7 +5,9 @@ export class Security {
     private secretKey: string;
 
     constructor() {
+
         this.secretKey = "YOUR_SECRET_KEY";
+
     }
 
     public getToken(value: any): string {
@@ -19,10 +21,15 @@ export class Security {
         let data: Object;
 
         try {
+
             data = JsonWebToken.verify(token, this.secretKey);
+
         } catch (error) {
+
             console.log(error);
+
             return null;
+
         }
 
         return data;

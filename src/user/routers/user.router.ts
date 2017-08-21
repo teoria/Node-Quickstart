@@ -1,8 +1,6 @@
 import { Server, IReply, Request } from "hapi";
-import { Facade } from "sinkmvc";
 
 import { Router } from '../../shared';
-import { UsersGetCommand } from "../controllers/commands/users-get.command";
 import { UserValidator } from '../validators/user.validator';
 import { UserController } from "../controllers/user.controller";
 

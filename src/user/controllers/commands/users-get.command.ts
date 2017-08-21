@@ -1,54 +1,29 @@
-import { SequelizeResponse, SequelizeResponseFactory } from "../../../shared";
-import { User, UserDAO, UserFactory } from '../../models';
+import {SequelizeResponse, SequelizeResponseFactory} from "../../../shared";
+import {User, UserDAO, UserFactory} from '../../models';
 
 export class UsersGetCommand {
 
-    public execute(): Promise<User[]> {
+    public async execute(): Promise<User[]> {
 
-        let promise: Promise<User[]> = new Promise((resolve, reject) => this.getUsers(resolve, reject));
-        return promise;
+        try {
 
-    }
+            let userDAO: UserDAO = new UserDAO();
+            let sequelizeResponse: SequelizeResponse[] = await userDAO.getUsers();
 
-    private getUsers(resolve, reject): void {
+            let sequelizeResponseFactory: SequelizeResponseFactory = new SequelizeResponseFactory();
+            let data: Object[] = sequelizeResponseFactory.create(sequelizeResponse);
 
-        let userDAO: UserDAO = new UserDAO();
-        let promise: Promise<SequelizeResponse[]> = userDAO.getUsers();
-        
-        promise
-            .then((sequelizeResponse: SequelizeResponse[]) => this.onSuccessGetUsers(sequelizeResponse, resolve))
-            .catch(err => reject(err));
+            let userFactory: UserFactory = new UserFactory();
+            let users: User[] = userFactory.create(data);
 
-    }
+            return users;
 
-    private onSuccessGetUsers(sequelizeResponse: SequelizeResponse[], resolve): void {
+        } catch (err) {
 
-        let sequelizeResponseFactory: SequelizeResponseFactory = new SequelizeResponseFactory();
-        let data: Object[] = sequelizeResponseFactory.create(sequelizeResponse);
-        let userFactory: UserFactory = new UserFactory();
-        let users: User[] = userFactory.create(data);
-        
-        resolve(users);
+            throw err;
+
+        }
 
     }
-
-    //or 
-
-    // public execute(): Promise<Object[]> {
-
-    //     return new Promise((resolve, reject) => {
-
-    //         let userDAO: UserDAO = new UserDAO();
-    //         let promise: Promise<ISequelizeResponse[]> = userDAO.getUsers();
-    //         let sequelizeResponseFactory: SequelizeResponseFactory = new SequelizeResponseFactory();
-    //         let userFactory: UserFactory = new UserFactory();
-            
-    //         promise
-    //             .then(sequelizeResponse => resolve(userFactory.create(sequelizeResponseFactory.create(sequelizeResponse))))
-    //             .catch(err => reject(err));
-
-    //     });
-
-    // }
 
 }

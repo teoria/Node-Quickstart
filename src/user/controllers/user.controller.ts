@@ -1,20 +1,26 @@
 import * as Boom from 'boom';
-import { IReply, Request } from 'hapi';
-import { Error } from 'sequelize';
+import {IReply, Request} from 'hapi';
+import {Error} from 'sequelize';
 
-import { User } from '../models/user.model';
-import { UsersGetCommand } from './commands/users-get.command';
+import {UsersGetCommand} from './commands/users-get.command';
+import {User} from "../models/user.model";
 
 export class UserController {
 
-    public getUsers(request: Request, reply: IReply): void {
+    public async getUsers(request: Request, reply: IReply): Promise<void> {
 
-        let command: UsersGetCommand = new UsersGetCommand();
-        let promise: Promise<User[]> = command.execute();
+        try {
 
-        promise
-            .then(users => reply({ users: users }))
-            .catch(err => reply(Boom.conflict("Unexpected error", { errors: err.errors })));
+            let command: UsersGetCommand = new UsersGetCommand();
+            let users: User[] = await command.execute();
+
+            reply({users: users});
+
+        } catch (err) {
+
+            reply(Boom.conflict("Unexpected error", {errors: err.errors}));
+
+        }
 
     }
 
