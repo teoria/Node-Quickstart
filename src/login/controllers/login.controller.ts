@@ -1,7 +1,7 @@
-import { IReply, Request } from 'hapi';
-import { Error } from 'sequelize';
+import {IReply, Request} from 'hapi';
+import {Error} from 'sequelize';
 
-import { Security } from "../../shared";
+import {Security} from "../../shared";
 
 export class LoginController {
 
@@ -12,7 +12,7 @@ export class LoginController {
             id_user: '1'
         });
 
-        reply({ token: token });
+        reply({token: token});
 
     }
 

@@ -1,8 +1,8 @@
-import { Server, IReply, Request } from "hapi";
+import {Server, IReply, Request} from "hapi";
 
-import { Router } from '../../shared';
-import { UserValidator } from '../validators/user.validator';
-import { UserController } from "../controllers/user.controller";
+import {Router} from '../../shared';
+import {UserValidator} from '../validators/user.validator';
+import {UserController} from "../controllers/user.controller";
 
 export class UserRouter extends Router {
 

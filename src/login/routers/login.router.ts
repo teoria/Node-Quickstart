@@ -1,8 +1,8 @@
-import { Server, IReply, Request } from "hapi";
+import {Server, IReply, Request} from "hapi";
 
-import { Router } from '../../shared';
-import { LoginController } from '../controllers/login.controller';
-import { LoginValidator } from '../validators/login.validator';
+import {Router} from '../../shared';
+import {LoginController} from '../controllers/login.controller';
+import {LoginValidator} from '../validators/login.validator';
 
 export class LoginRouter extends Router {
 
@@ -21,6 +21,7 @@ export class LoginRouter extends Router {
             path: '/login',
             handler: loginController.login,
             config: {
+                // auth: 'bearer',
                 validate: {
                     query: loginValidator.LOGIN
                 }
